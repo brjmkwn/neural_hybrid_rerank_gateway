@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neural-hybrid-rerank-gateway"
+version = "0.1.0"
+description = "Tier-0 Enterprise Neural Search, Information Retrieval & Speculative Reranking Gateway"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Staff AI Infrastructure Team" }]
+dependencies = [
+    "numpy>=1.24.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "onnxruntime>=1.16.0",
+    "tokenizers>=0.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "mypy>=1.8.0",
+    "httpx>=0.27.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+python_files = "test_*.py"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
